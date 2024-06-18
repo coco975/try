@@ -43,10 +43,10 @@
         <input type="text" id="morse-input" placeholder="Enter Morse code to decode (use spaces for separation)">
         <button onclick="decodeFromMorse()">Decode from Morse Code</button>
     </div>
-    <div id="result"></div>
-    <div> 
-        <h1> Owned by Michael Owuso 😎</h1>
+    <div>
+        <button id="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
+    <div id="result"></div>
 
     <script>
         const morseCode = {
@@ -75,6 +75,15 @@
             const morseInput = document.getElementById('morse-input').value;
             const result = morseToText(morseInput);
             document.getElementById('result').innerText = result;
+        };
+
+        const copyToClipboard = () => {
+            const resultText = document.getElementById('result').innerText;
+            navigator.clipboard.writeText(resultText).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy text: ', err);
+            });
         };
     </script>
 </body>
