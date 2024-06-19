@@ -1,0 +1,24 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: lightblue;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: black;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            background-color: white;
+            border-radius: 12px;
+        }
