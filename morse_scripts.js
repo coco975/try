@@ -28,9 +28,11 @@ const decodeFromMorse = () => {
 
 const copyToClipboard = () => {
     const resultText = document.getElementById('result').innerText;
-    navigator.clipboard.writeText(resultText).then(() => {
-        alert('Copied to clipboard!');
-    }).catch(err => {
-        alert('Failed to copy text: ', err);
-    });
+    const textarea = document.createElement('textarea');
+    textarea.value = resultText;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert('Copied to clipboard!');
 };
