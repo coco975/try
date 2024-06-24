@@ -2,26 +2,51 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 50px;
     background-color: lightblue;
+    padding: 0 10px; /* Added padding to prevent content from touching the edges */
 }
+
 input, textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     font-size: 16px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
+
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     color: black;
 }
+
 #result {
     margin-top: 20px;
     padding: 10px;
     border: 2px solid #ccc;
     background-color: white;
     border-radius: 12px;
-    word-spacing: 10px;
-    letter-spacing: 2px;
-    white-space: pre;
+    word-spacing: 10px; /* Increase word spacing */
+    letter-spacing: 2px; /* Increase letter spacing */
+    white-space: pre-wrap; /* Preserve spaces and wrap lines */
+    overflow-wrap: break-word; /* Break long words to fit within the container */
+    word-break: break-word; /* Break long words to fit within the container */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+        padding: 0 5px;
+    }
+    #result {
+        font-size: 14px; /* Adjust font size for better readability on small screens */
+        padding: 5px;
+        word-spacing: 5px;
+        letter-spacing: 1px;
+    }
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
