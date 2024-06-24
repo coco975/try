@@ -21,6 +21,7 @@ button {
     border: 2px solid #ccc;
     background-color: white;
     border-radius: 12px;
-    word-spacing: 10px; /* Increase word spacing */
-    letter-spacing: 2px; /* Increase letter spacing */
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    white-space: pre;
 }
