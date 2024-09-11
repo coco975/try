@@ -1,3 +1,10 @@
+
+
+function cinvertAndPlay() {
+    const textInput = document.getElementById('textInput').value;
+    const morseCode = text
+}
+
 const morseCode = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
     'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
