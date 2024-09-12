@@ -2,7 +2,8 @@
 
 function cinvertAndPlay() {
     const textInput = document.getElementById('textInput').value;
-    const morseCode = text
+    const morseCode = textToMorse(textInput);
+    playMorseCode(moresCode)
 }
 
 const morseCode = {
