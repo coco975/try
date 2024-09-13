@@ -1,9 +1,9 @@
 function convertAndPlay() {
     const textInput = document.getElementById('textInput').value;
     const morseCode = textToMorse(textInput);
-    playMorseCode(morseCode); // Fixed typo: moresCode -> morseCode
+    playMorseCode(morseCode);
 }
-
+ 
 const morseCodeMapping = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
     'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
@@ -17,28 +17,28 @@ const morseCodeMapping = {
     ';': '-.-.-.', '=': '-...-', '+': '.-.-.', '-': '-....-', '_': '..--.-',
     '"': '.-..-.', '@': '.--.-.', ' ': '/'
 };
-
+ 
 const textToMorse = (text) => {
     return text.toUpperCase().split('').map(char => morseCodeMapping[char] || char).join(' ');
 };
-
+ 
 const morseToText = (morse) => {
     const morseToChar = Object.fromEntries(Object.entries(morseCodeMapping).map(([k, v]) => [v, k]));
     return morse.split(' ').map(code => morseToChar[code] || code).join('');
 };
-
+ 
 const encodeToMorse = () => {
     const textInput = document.getElementById('text-input').value;
     const result = textToMorse(textInput);
     document.getElementById('result').innerText = result;
 };
-
+ 
 const decodeFromMorse = () => {
     const morseInput = document.getElementById('morse-input').value;
     const result = morseToText(morseInput);
     document.getElementById('result').innerText = result;
 };
-
+ 
 const copyToClipboard = () => {
     const resultText = document.getElementById('result').innerText;
     const textarea = document.createElement('textarea');
@@ -49,14 +49,14 @@ const copyToClipboard = () => {
     document.body.removeChild(textarea);
     alert('Copied to clipboard!');
 };
-
+ 
 function playMorseCode(morseCode) {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
+ 
     const dotDuration = 100; // milliseconds
     const dashDuration = dotDuration * 3;
     const frequency = 1000; // Hz
-
+ 
     function playTone(duration) {
         const oscillator = audioContext.createOscillator();
         oscillator.type = 'sine';
@@ -65,16 +65,16 @@ function playMorseCode(morseCode) {
         oscillator.start();
         oscillator.stop(audioContext.currentTime + duration / 1000);
     }
-
+ 
     function playMorseChar(char) {
         if (char === '.') {
             playTone(dotDuration);
         } else if (char === '-') {
             playTone(dashDuration);
         }
-        return new Promise(resolve => setTimeout(resolve, dotDuration)); // Inter-letter spacing
+       return new Promise(resolve => setTimeout(resolve, dotDuration)); // Inter-letter spacing
     }
-
+ 
     async function play() {
         for (const char of morseCode) {
             if (char === ' ') {
@@ -84,6 +84,6 @@ function playMorseCode(morseCode) {
             }
         }
     }
-
+ 
     play();
 }
